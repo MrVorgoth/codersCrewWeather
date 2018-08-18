@@ -1,0 +1,23 @@
+.basic-info-container {
+  width: 700px;
+  margin: 100px auto 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  overflow: hidden;
+  color: #919191;
+  background-color: #E8EAED;
+}
+
+.basic-info-boxL {
+    padding-left: 10px;
+    width: calc(50% - 5px)
+}
+
+.basic-info-weather {
+    display: flex;
+}
+
+
+.basic-info-boxR {
+    width: calc(50% - 5px);
+}
