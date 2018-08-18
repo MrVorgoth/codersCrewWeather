@@ -1,0 +1,24 @@
+{
+  "name": "coderscrewweather",
+  "version": "1.0.0",
+  "description": "section basic info by Miłosz Ogaza",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrVorgoth/codersCrewWeather.git"
+  },
+  "keywords": [
+    "weather",
+    "project",
+    "cleancode"
+  ],
+  "author": "Miłosz Ogaza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrVorgoth/codersCrewWeather/issues"
+  },
+  "homepage": "https://github.com/MrVorgoth/codersCrewWeather#readme"
+}
