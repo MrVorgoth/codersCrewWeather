@@ -1,6 +1,5 @@
 class BasicInfo {
     constructor() {
-        this.testValue = "test test test"
         this.postalCodeAndCity = document.querySelector('#postalCodeAndCity');
         this.weekdayAndHour = document.querySelector('#weekdayAndHour');
         this.insoltation = document.querySelector('#insoltation');

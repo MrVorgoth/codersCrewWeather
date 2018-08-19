@@ -1,7 +1,8 @@
 import BasicInfo from './BasicInfo.js';
+import BasicInfoController from './BasicInfoController.js'
 
 window.onload = () => {
-    const BasicInfoObj = new BasicInfo();
-}
-
-//test 3
+    //let basicInfo = new BasicInfo();
+    let basicInfoController = new BasicInfoController();
+    basicInfoController.logDataFromApi();
+};
