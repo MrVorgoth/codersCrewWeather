@@ -1,15 +1,14 @@
 class BasicInfo {
     constructor() {
-        //TODO: assign values from html documents using query selector
         this.testValue = "test test test"
-        this.postalCodeAndCity = null;
-        this.weekdayAndHour = null;
-        this.insoltation = null;
-        this.icon = null;
-        this.temperature = null;
-        this.precipitation = null;
-        this.humidity = null;
-        this.wind = null;
+        this.postalCodeAndCity = document.querySelector('#postalCodeAndCity');
+        this.weekdayAndHour = document.querySelector('#weekdayAndHour');
+        this.insoltation = document.querySelector('#insoltation');
+        this.icon = document.querySelector('#icon');
+        this.temperature = document.querySelector('#temperature');
+        this.precipitation = document.querySelector('#precipitation');
+        this.humidity = document.querySelector('#humidity');
+        this.wind = document.querySelector('#wind');
     }
 }
 export default BasicInfo;

@@ -13,11 +13,10 @@
     width: calc(50% - 5px)
 }
 
-.basic-info-weather {
-    display: flex;
-}
-
-
 .basic-info-boxR {
     width: calc(50% - 5px);
+}
+
+.basic-info-weather {
+    display: flex;
 }
