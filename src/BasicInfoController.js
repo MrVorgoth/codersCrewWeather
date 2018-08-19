@@ -1,8 +1,9 @@
-//import BasicInfo from "./BasicInfo";
+import axios from 'axios';
+import BasicInfo from "./BasicInfo.js";
 
 class BasicInfoController {
     constructor(){
-        //this.basicInfo = new BasicInfo();
+        this.basicInfo = new BasicInfo();
         this.CONFING = {
             CITY_ID: "3081368",
             API_KEY: "760aed7e289ca1fce93475faf5a1f920",
@@ -11,7 +12,8 @@ class BasicInfoController {
         }
     }
     logDataFromApi() {
-        fetch(this.CONFING.FULL_API_URL)
+        //TODO: fix problems with axios or fetch or implement an alternative solution
+        axios.get(this.CONFING.FULL_API_URL)
         .then((res) => res.json())
         .then((data) => console.log(data));
     }
