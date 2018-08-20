@@ -4,3 +4,8 @@ body {
   color: white;
   background-color: #444;
 }
+
+#wind-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
