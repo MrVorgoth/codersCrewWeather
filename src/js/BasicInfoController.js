@@ -12,10 +12,11 @@ class BasicInfoController {
         }
     }
     logDataFromApi() {
-        //TODO: fix problems with axios or fetch or implement an alternative solution
         axios.get(this.CONFING.FULL_API_URL)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
     }
 
 }

@@ -2,9 +2,10 @@
   "name": "coderscrewweather",
   "version": "1.0.0",
   "description": "section basic info by Miłosz Ogaza",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server -d --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,19 @@
     "url": "https://github.com/MrVorgoth/codersCrewWeather/issues"
   },
   "homepage": "https://github.com/MrVorgoth/codersCrewWeather#readme",
-  "devDependencies": {
+  "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "extract-loader": "^2.0.1",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "style-loader": "^0.21.0",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
     "axios": "^0.18.0",
     "node-fetch": "^2.2.0"
   }
