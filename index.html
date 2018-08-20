@@ -1,13 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Weather</title>
-    <link rel="stylesheet" href="style/style.css">
-  </head>
-  <body>
-  
-  </body>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather App </title>
+    <link href="https://fonts.googleapis.com/css?family=Eczar:700|Lato" rel="stylesheet">
+    <link href="style/style.css" / rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="section_7days_forcast--wrapper">
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Tue</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">27&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">20&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Wed</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">25&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">18&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Thu</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">29&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">22&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Fri</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">24&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">20&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Sat</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">26&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">23&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Sun</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">32&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">23&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section_7days_forcast--box">
+        <div class="section_7days_forcast--box-day"><p>Mon</p></div>
+        <div class="section_7days_forcast--box-icone"><img class="sunny-icone" src="assets/sun-icone.svg" alt="weather-cast"></div>
+        <div class="section_7days_forcast--box-temperature">
+          <div class="forcast_box_temperature--day">
+            <p class="forcast_box_temperature--day-night-txt">Day</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data">28&deg;C</p>
+            </div>
+          </div>
+          <div class="forcast_box_temperature--night">
+            <p class="forcast_box_temperature--day-night-txt2">Night</p>
+            <div class="forcast_box--temperature-container">
+              <p class="forcast_box_temperature--container-data2">20&deg;C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
 </html>
