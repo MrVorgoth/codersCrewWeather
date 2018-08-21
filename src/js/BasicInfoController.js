@@ -37,9 +37,12 @@ class BasicInfoController {
         axios.get(this.CONFING.FULL_API_URL)
             .then((res) => {
                 this.basicInfo.city.innerHTML = res.data.name;
-                this.basicInfo.temperature.innerHTML = `Tempreature: ${((res.data.main["temp_min"] + res.data.main["temp_max"]) / 2 - 273)}&deg;C`;
+                this.basicInfo.temperature.innerHTML = ` ${Math.round(((res.data.main["temp_min"] + res.data.main["temp_max"]) / 2 - 273)*10)/10}&deg;C`;
                 this.basicInfo.pressure.innerHTML = `Pressure: ${res.data.main["pressure"]}&deg;C`;
                 this.basicInfo.humidity.innerHTML = `Humidity: ${res.data.main["humidity"]} hPa`;
+                this.basicInfo.weatherDescription.innerHTML = res.data.weather[0]["description"];
+                this.basicInfo.wind.innerHTML = `Wind: ${res.data.wind.speed} mph`;
+                this.basicInfo.hour.innerHTML = `${new Date().getHours()}:${new Date().getMinutes()}`;
             }
         )};
 }

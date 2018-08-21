@@ -2,7 +2,7 @@ class BasicInfo {
     constructor() {
         this.city = document.querySelector('#city');
         this.hour = document.querySelector('#hour');
-        this.insoltation = document.querySelector('#insoltation');
+        this.weatherDescription = document.querySelector('#weatherDescription');
         this.icon = document.querySelector('#icon');
         this.temperature = document.querySelector('#temperature');
         this.pressure = document.querySelector('#pressure');
