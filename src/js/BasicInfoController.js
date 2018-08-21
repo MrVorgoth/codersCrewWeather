@@ -14,10 +14,33 @@ class BasicInfoController {
     logDataFromApi() {
         axios.get(this.CONFING.FULL_API_URL)
         .then((res) => {
-          console.log(res);
+          //log whole object
           console.log(res.data);
+
+          //log city
+          console.log(res.data.name);
+
+          //log tempreature
+          console.log(res.data.main["temp"]);
+
+          //log pressure
+          console.log(res.data.main["pressure"]);
+
+          //log humidity
+          console.log(res.data.main["humidity"]);
+
+          //log tempreature
+          console.log((res.data.main["temp_min"] + res.data.main["temp_max"])/2 - 273);
         });
     }
-
+    renderHTML() {
+        axios.get(this.CONFING.FULL_API_URL)
+            .then((res) => {
+                this.basicInfo.city.innerHTML = res.data.name;
+                this.basicInfo.temperature.innerHTML = `Tempreature: ${((res.data.main["temp_min"] + res.data.main["temp_max"]) / 2 - 273)}&deg;C`;
+                this.basicInfo.pressure.innerHTML = `Pressure: ${res.data.main["pressure"]}&deg;C`;
+                this.basicInfo.humidity.innerHTML = `Humidity: ${res.data.main["humidity"]} hPa`;
+            }
+        )};
 }
 export default BasicInfoController;
