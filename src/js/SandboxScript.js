@@ -1,5 +1,9 @@
 import BasicInfo from './BasicInfo.js';
 import BasicInfoController from './BasicInfoController.js';
-
-let basicInfoController = new BasicInfoController();
-basicInfoController.logDataFromApi();
+ 
+window.onload = () => {
+    let basicInfoController = new BasicInfoController();
+    let loadData = basicInfoController.logDataFromApi.bind(basicInfoController);
+    let buttonLoadData = document.querySelector('#buttonLoadData');
+    buttonLoadData.addEventListener("click",loadData);
+}

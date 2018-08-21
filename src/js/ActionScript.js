@@ -4,5 +4,6 @@ import BasicInfoController from './BasicInfoController.js'
 window.onload = () => {
     let basicInfo = new BasicInfo();
     let basicInfoController = new BasicInfoController();
-    basicInfoController.logDataFromApi();
+    //basicInfoController.logDataFromApi();
+    
 };
