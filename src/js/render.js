@@ -7,7 +7,4 @@ window.onload = () => {
     let renderHTML = basicInfoController.renderHTML.bind(basicInfoController);
     let buttonLoadData = document.querySelector('#buttonLoadData');
     buttonLoadData.addEventListener("click",renderHTML);
-
-    //test log the whole data object form api to the browser console 
-    basicInfoController.logDataFromApi();
 }

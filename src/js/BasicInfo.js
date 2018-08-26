@@ -1,7 +1,7 @@
 class BasicInfo {
     constructor() {
         this.city = document.querySelector('#city');
-        this.hour = document.querySelector('#hour');
+        this.currentTime = document.querySelector('#currentTime');
         this.weatherDescription = document.querySelector('#weatherDescription');
         this.icon = document.querySelector('#icon');
         this.temperature = document.querySelector('#temperature');
