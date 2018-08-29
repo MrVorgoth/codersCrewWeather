@@ -10,12 +10,19 @@ a {
     text-decoration: none;
 }
 
+p {
+    font-size: 18px;
+}
+
 p:hover {
     color: #bebcbc;
 }
 
 #city {
     color: black;
+    line-height: 3px;
+    margin-top: 35px;
+    font-size: 35px;
 }
 
 #city:hover {

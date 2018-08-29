@@ -14,6 +14,10 @@
     width: calc(50% - 5px)
 }
 
+#weatherDescription {
+    line-height: 2px;
+}
+
 .basic-info-boxR {
     margin-top: 10px;
     width: calc(50% - 5px);
@@ -21,10 +25,12 @@
 
 .basic-info-weather {
     display: flex;
+    margin-top: 30px;
 }
 
 .basic-info-temperature {
     color: black;
+    font-size: 25px;
 }
 
 .basic-info-temperature:hover {
@@ -33,4 +39,9 @@
 
 .basic-info-description {
     line-height: 1.4;
+}
+
+#icon {
+    width: 80px;
+    height: 80px;
 }
