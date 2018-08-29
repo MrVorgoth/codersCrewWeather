@@ -42,7 +42,31 @@ const box5Day = document.getElementById("box5_day");
 const connect = new XMLHttpRequest();
 connect.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric");
 connect.onload = function() {
+
     const data = JSON.parse(connect.responseText);
+    const weaterData = [];
+    for (let i = 0; i < 40; i++) {
+        weaterData.push(data.list[i].main.temp)
+    }
+    //from 0 to 7 depending on day/night hour
+    const apiPhase = Math.round((((new Date).getHours() / 8) * 3)/2);
+    let agregatedWeatherData =[];
+    let counter = 0;
+    for(let i=0; i < 10; i++) {
+        agregatedWeatherData[i] = [];
+        for(let j=0; j < 4; j++) {
+            if(apiPhase - 1 < counter && weaterData.length > 0) {
+                agregatedWeatherData[i].push(weaterData.shift());
+                counter += 1;
+            } else {
+                counter += 1;           
+            }
+        }
+    }
+        
+    console.log(weaterData);
+    console.log(apiPhase);
+    console.log(agregatedWeatherData);
 
     box1Night.innerHTML = Math.round(data.list[0].main.temp) + "&deg;C";
     box2Night.innerHTML = Math.round(data.list[8].main.temp) + "&deg;C";
