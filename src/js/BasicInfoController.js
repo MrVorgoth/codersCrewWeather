@@ -52,6 +52,7 @@ class BasicInfoController {
                 this.basicInfo.weatherDescription.innerHTML = res.data.weather[0]["description"];
                 this.basicInfo.wind.innerHTML = `Wind: ${res.data.wind.speed} kmh`;
                 this.basicInfo.currentTime.innerHTML = `${this.formattedTime.formattedHours}:${this.formattedTime.formattedMinutes}`;
+                this.basicInfo.icon.src = `http://openweathermap.org/img/w/${res.data.weather[0]["icon"]}.png`;
             }
         )};
 }
