@@ -8,6 +8,8 @@ class BasicInfo {
         this.pressure = document.querySelector('#pressure');
         this.humidity = document.querySelector('#humidity');
         this.wind = document.querySelector('#wind');
+        this.temperatureMin = document.querySelector('#temperatureMin');
+        this.temperatureMax = document.querySelector('#temperatureMax');
     }
 }
 export default BasicInfo;

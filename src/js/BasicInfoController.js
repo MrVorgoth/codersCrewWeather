@@ -20,28 +20,7 @@ class BasicInfoController {
             formattedMinutes: (this.time.minutes < 10 ? "0" : "") + this.time.minutes
         }
     }
-    // logDataFromApi() {
-    //     axios.get(this.CONFING.FULL_API_URL)
-    //     .then((res) => {
-    //       //log whole object
-    //       console.log(res.data);
 
-    //       //log city
-    //       console.log(res.data.name);
-
-    //       //log tempreature
-    //       console.log(res.data.main["temp"]);
-
-    //       //log pressure
-    //       console.log(res.data.main["pressure"]);
-
-    //       //log humidity
-    //       console.log(res.data.main["humidity"]);
-
-    //       //log tempreature
-    //       console.log((res.data.main["temp_min"] + res.data.main["temp_max"])/2 - 273);
-    //     });
-    // }
     renderHTML() {
         axios.get(this.CONFING.FULL_API_URL)
             .then((res) => {
@@ -52,7 +31,9 @@ class BasicInfoController {
                 this.basicInfo.weatherDescription.innerHTML = res.data.weather[0]["description"];
                 this.basicInfo.wind.innerHTML = `Wind: ${res.data.wind.speed} kmh`;
                 this.basicInfo.currentTime.innerHTML = `${this.formattedTime.formattedHours}:${this.formattedTime.formattedMinutes}`;
-                this.basicInfo.icon.src = `http://openweathermap.org/img/w/${res.data.weather[0]["icon"]}.png`;
+                this.basicInfo.icon.src = `http://openweathermap.org/img/w/${res.data.weather[0]["icon"]}.png`; 
+                this.basicInfo.temperatureMin.innerHTML = `Temp min: ${Math.round(((res.data.main["temp_min"] - 273) * 10) / 10)} &deg;C`; 
+                this.basicInfo.temperatureMax.innerHTML = `Temp max: ${Math.round(((res.data.main["temp_max"] - 273) * 10) / 10)} &deg;C`;        
             }
         )};
 }
