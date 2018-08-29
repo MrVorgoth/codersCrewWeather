@@ -44,19 +44,19 @@ connect.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=3081368&
 connect.onload = function() {
 
     const data = JSON.parse(connect.responseText);
-    const weaterData = [];
+    const weatherData = [];
     for (let i = 0; i < 40; i++) {
-        weaterData.push(data.list[i].main.temp)
+        weatherData.push(data.list[i].main.temp)
     }
 
     const apiPhase = Math.round((((new Date).getHours() / 8) * 3)/2);
-    let agregatedWeatherData =[];
+    let aggregatedWeatherData =[];
     let counter = 0;
     for(let i=0; i < 10; i++) {
-        agregatedWeatherData[i] = [];
+        aggregatedWeatherData[i] = [];
         for(let j=0; j < 4; j++) {
-            if(apiPhase - 1 < counter && weaterData.length > 0) {
-                agregatedWeatherData[i].push(weaterData.shift());
+            if(apiPhase - 1 < counter && weatherData.length > 0) {
+                aggregatedWeatherData[i].push(weatherData.shift());
                 counter += 1;
             } else {
                 counter += 1;           
@@ -64,7 +64,7 @@ connect.onload = function() {
         }
     }
 
-    const averagedWeatherData = agregatedWeatherData.map(
+    const averagedWeatherData = aggregatedWeatherData.map(
         (arr) => {
             if (arr.length > 0){
                 return Math.round((arr.reduce((x, y) => x + y, 0)) / arr.length || 1);
