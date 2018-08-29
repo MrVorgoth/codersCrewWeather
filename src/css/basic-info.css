@@ -1,11 +1,12 @@
 .basic-info-container {
-  width: 700px;
-  margin: 100px auto 0 auto;
-  display: flex;
-  flex-flow: row wrap;
-  overflow: hidden;
-  color: #919191;
-  background-color: #E8EAED;
+    padding: 10px;
+    width: 700px;
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    color: #666666;
+    background-color: white;
 }
 
 .basic-info-boxL {
@@ -14,9 +15,22 @@
 }
 
 .basic-info-boxR {
+    margin-top: 10px;
     width: calc(50% - 5px);
 }
 
 .basic-info-weather {
     display: flex;
+}
+
+.basic-info-temperature {
+    color: black;
+}
+
+.basic-info-temperature:hover {
+    color: rgb(122, 122, 122);
+}
+
+.basic-info-description {
+    line-height: 1.4;
 }
