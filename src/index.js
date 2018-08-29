@@ -48,7 +48,7 @@ connect.onload = function() {
     for (let i = 0; i < 40; i++) {
         weaterData.push(data.list[i].main.temp)
     }
-    //from 0 to 7 depending on day/night hour
+
     const apiPhase = Math.round((((new Date).getHours() / 8) * 3)/2);
     let agregatedWeatherData =[];
     let counter = 0;
@@ -63,23 +63,27 @@ connect.onload = function() {
             }
         }
     }
-        
-    console.log(weaterData);
-    console.log(apiPhase);
-    console.log(agregatedWeatherData);
 
-    box1Night.innerHTML = Math.round(data.list[0].main.temp) + "&deg;C";
-    box2Night.innerHTML = Math.round(data.list[8].main.temp) + "&deg;C";
-    box3Night.innerHTML = Math.round(data.list[16].main.temp) + "&deg;C";
-    box4Night.innerHTML = Math.round(data.list[24].main.temp) + "&deg;C";
-    box5Night.innerHTML = Math.round(data.list[32].main.temp) + "&deg;C";
+    const averagedWeatherData = agregatedWeatherData.map(
+        (arr) => {
+            if (arr.length > 0){
+                return Math.round((arr.reduce((x, y) => x + y, 0)) / arr.length || 1);
+            } else {
+                return "--"
+            }      
+        }
+    );
 
-    box1Day.innerHTML = Math.round(data.list[5].main.temp) + "&deg;C";
-    box2Day.innerHTML = Math.round(data.list[13].main.temp) + "&deg;C";
-    box3Day.innerHTML = Math.round(data.list[21].main.temp) + "&deg;C";
-    box4Day.innerHTML = Math.round(data.list[29].main.temp) + "&deg;C";
-    box5Day.innerHTML = Math.round(data.list[37].main.temp) + "&deg;C";
-
+    box1Day.innerHTML = averagedWeatherData[0];
+    box1Night.innerHTML = averagedWeatherData[1];
+    box2Day.innerHTML = averagedWeatherData[2];
+    box2Night.innerHTML = averagedWeatherData[3]; 
+    box3Day.innerHTML = averagedWeatherData[4];
+    box3Night.innerHTML = averagedWeatherData[5];
+    box4Day.innerHTML = averagedWeatherData[6];
+    box4Night.innerHTML = averagedWeatherData[7];
+    box5Day.innerHTML = averagedWeatherData[8];
+    box5Night.innerHTML = averagedWeatherData[9];
 };
 
 connect.send();
