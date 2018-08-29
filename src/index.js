@@ -1,32 +1,19 @@
 
-
-var currentDate = new Date();
-var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-
-console.log(days[currentDate.getDay()]);
-
-
+const currentDate = new Date();
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 // getDay will return us current day, inside days.slice for example if current day is Wednesday it will return us [wed, thu, fir, sat]
 let fromCurrentDay = days.slice(currentDate.getDay());
-
 
 // if fromCurrentDay contains less than 5 day we have to complete the missing elements to get [wed, thu, fir, sat, sun] etc it depends what current day it is
 if (fromCurrentDay.length <5)
 {
     let tmp = 5 - fromCurrentDay.length;
-    console.log(tmp);
-
     for (let i = 0; i < tmp; i++) {
 
         fromCurrentDay.push(days[i]);
-    }
-    console.log(fromCurrentDay);
-    
+    }  
 }
-
-
 
 const weekDay = [
  day1 = document.getElementById("day1"),
@@ -36,19 +23,10 @@ const weekDay = [
  day5 = document.getElementById("day5"),
 ]
 
-
 weekDay.map( (day, index) =>{
     console.log(index);
     day.innerHTML = fromCurrentDay[index];
 })
-
-
-
-
-
-
-
-
 
 const box1Night = document.getElementById("box1_night");
 const box2Night = document.getElementById("box2_night");
@@ -62,8 +40,6 @@ const box2Day = document.getElementById("box2_day");
 const box3Day = document.getElementById("box3_day");
 const box4Day = document.getElementById("box4_day");
 const box5Day = document.getElementById("box5_day");
-
-
 
 const connect = new XMLHttpRequest();
 connect.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric");
@@ -87,9 +63,5 @@ connect.onload = function() {
     box5Day.innerHTML = Math.round(data.list[37].main.temp) + "&deg;C";
 
 };
-
-
-
-
 
 connect.send();
