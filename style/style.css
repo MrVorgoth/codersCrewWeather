@@ -1,6 +1,54 @@
+.container {
+    height: 300px;
+    width: 600px;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  background-color: #444;
+    font-family: 'Roboto Slab', serif;
+    -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+.vertical-align {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.temp-text {
+    font-size: 72px;
+    font-weight: 100;
+    color: cyan;
+    color: rgba(49, 70, 67, 1);
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, .1), 1px 1px 0px rgba(0, 0, 0, 1);
+    opacity: 0.7;
+}
+
+#chartjs-tooltip {
+    opacity: 1;
+    position: absolute;
+    color: white;
+    padding: 0px;
+    -webkit-transition: all .1s ease;
+    transition: all .1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.tooltip-container {
+    background: red;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .7);
+}
+
+@media only screen and (min-width: 320px) {
+    .btn {
+        font-size: 36px;
+    }
 }
