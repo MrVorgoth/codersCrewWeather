@@ -25,7 +25,7 @@ connect.onload = function() {
   });
   if (temperatures.length > 0) {
     $(document).ready(function() {
-      var data = {
+      const data = {
         labels: [],
         datasets: [
           {
@@ -41,10 +41,9 @@ connect.onload = function() {
       };
 
       $.each(temperatures, function(i, temp) {
-        var rt = new Date(temp.recorded_time);
-        var hours = rt.getHours() > 9 ? rt.getHours() : "0" + rt.getHours();
-        var minutes =
-          rt.getMinutes() > 9 ? rt.getMinutes() : "0" + rt.getMinutes();
+        let rt = new Date(temp.recorded_time);
+        let hours = rt.getHours() > 9 ? rt.getHours() : "0" + rt.getHours();
+        let minutes = rt.getMinutes() > 9 ? rt.getMinutes() : "0" + rt.getMinutes();
         data.labels.push(hours + ":" + minutes);
         data.datasets[0].data.push(Math.round(temp.temperature * 10) / 10);
       });
@@ -54,7 +53,7 @@ connect.onload = function() {
       Chart.defaults.global.scaleFontSize = 16;
       Chart.defaults.global.animationSteps = 30;
 
-      var options = {
+      const options = {
         legend: {
           display: false
         }
