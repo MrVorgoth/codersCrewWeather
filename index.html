@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Weather App </title>
     <link href="https://fonts.googleapis.com/css?family=Eczar:700|Lato" rel="stylesheet">
-    <!-- <link href="style/style.css" / rel="stylesheet"> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 
 <body>
@@ -38,6 +37,10 @@
               <p id="temperatureMax">Temp max: 100&deg;C</p>
           </div>
       </div>
+    </div>
+
+    <div class="container">
+        <canvas id="myChart" class="col-xs-12"></canvas>
     </div>
 
     <div class="section_7days_forcast--wrapper">
@@ -143,6 +146,6 @@
         </div>
     </div>
 
-    <script src="bundle.js"></script>
+  <script src="bundle.js"></script>
 </body>
 </html>
