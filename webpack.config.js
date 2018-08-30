@@ -1,27 +1,64 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: ['./src/index.js'],
-  output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'main.js',
+  entry: {
+    main: "./src/js/index.js"
   },
-  mode: 'development',
+  mode: "development",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "/"
+  },
+  devServer: {
+    contentBase: "dist",
+    overlay: true
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader'],
-        exclude: /node_modules/,
+        use: [
+          { loader: "babel-loader" }
+        ],
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
       },
-    ],
-  },
-  resolve: {
-    extensions: ['.js'],
-  },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].html"
+            }
+          },
+          { loader: "extract-loader" },
+          {
+            loader: "html-loader",
+            options: {
+              attrs: ["img:src"]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/[name].[ext]"
+            }
+          }
+        ]
+      }
+    ]
+  }
 };

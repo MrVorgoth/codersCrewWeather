@@ -11,16 +11,16 @@ if (fromCurrentDay.length <5)
     let tmp = 5 - fromCurrentDay.length;
     for (let i = 0; i < tmp; i++) {
         fromCurrentDay.push(days[i]);
-    }  
+    }
 }
 
-const weekDay = [
- day1 = document.getElementById("day1"),
- day2 = document.getElementById("day2"),
- day3 = document.getElementById("day3"),
- day4 = document.getElementById("day4"),
- day5 = document.getElementById("day5"),
-]
+const day1 = document.getElementById('day1');
+const day2 = document.getElementById('day2');
+const day3 = document.getElementById('day3');
+const day4 = document.getElementById('day4');
+const day5 = document.getElementById('day5');
+
+const weekDay = [day1, day2, day3, day4, day5];
 
 weekDay.map( (day, index) =>{
     day.innerHTML = fromCurrentDay[index];
@@ -59,7 +59,7 @@ connect.onload = function() {
                 aggregatedWeatherData[i].push(weatherData.shift());
                 counter += 1;
             } else {
-                counter += 1;           
+                counter += 1;
             }
         }
     }
@@ -70,14 +70,14 @@ connect.onload = function() {
                 return Math.round((arr.reduce((x, y) => x + y, 0)) / arr.length || 1);
             } else {
                 return "--"
-            }      
+            }
         }
     );
 
     box1Day.innerHTML = averagedWeatherData[0];
     box1Night.innerHTML = averagedWeatherData[1];
     box2Day.innerHTML = averagedWeatherData[2];
-    box2Night.innerHTML = averagedWeatherData[3]; 
+    box2Night.innerHTML = averagedWeatherData[3];
     box3Day.innerHTML = averagedWeatherData[4];
     box3Night.innerHTML = averagedWeatherData[5];
     box4Day.innerHTML = averagedWeatherData[6];

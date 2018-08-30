@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(199, 195, 195);
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 18px;
+}
+
+p:hover {
+    color: #bebcbc;
+}
+
+#city {
+    color: black;
+    line-height: 3px;
+    margin-top: 35px;
+    font-size: 35px;
+}
+
+#city:hover {
+    color: rgb(107, 106, 106);
+}

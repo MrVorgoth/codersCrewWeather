@@ -1,0 +1,47 @@
+.basic-info-container {
+    padding: 10px;
+    width: 700px;
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    color: #666666;
+    background-color: white;
+}
+
+.basic-info-boxL {
+    padding-left: 10px;
+    width: calc(50% - 5px)
+}
+
+#weatherDescription {
+    line-height: 2px;
+}
+
+.basic-info-boxR {
+    margin-top: 10px;
+    width: calc(50% - 5px);
+}
+
+.basic-info-weather {
+    display: flex;
+    margin-top: 30px;
+}
+
+.basic-info-temperature {
+    color: black;
+    font-size: 25px;
+}
+
+.basic-info-temperature:hover {
+    color: rgb(122, 122, 122);
+}
+
+.basic-info-description {
+    line-height: 1.4;
+}
+
+#icon {
+    width: 80px;
+    height: 80px;
+}
