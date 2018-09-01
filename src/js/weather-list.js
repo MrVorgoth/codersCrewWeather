@@ -80,29 +80,6 @@ connect.onload = function() {
         iconData.push(data.list[i]["weather"][0]["icon"])
     }
 
-    // let aggregatedIconData = [];
-    // let iconDataCounter = 0;
-    // for(let i = 0; i < 5; i++) {
-    //     if(i === 0) {
-    //         if(iconData[0].includes('n')) {
-    //             aggregatedIconData[0] == ['--'];
-    //             continue;
-    //         } else {
-    //             aggregatedIconData[0] = [];
-    //             while(iconData[iconDataCounter].includes('d')) {
-    //                 aggregatedIconData[0].push(iconData[iconDataCounter])
-    //                 iconDataCounter += 1;
-    //             }
-    //         }
-    //     } else {
-    //         aggregatedIconData[i] = [];
-    //         while (iconData[iconDataCounter].includes('d')) {
-    //             aggregatedIconData[i].push(iconData[iconDataCounter])
-    //             iconDataCounter += 1;
-    //         }
-    //     }     
-    // }
-
     let aggregatedIconData = [];
     let iconDataCounter = 0;
     for(let i = 0; i < 5; i++) {
@@ -121,14 +98,6 @@ connect.onload = function() {
             }
         }
     }
-
-
-
-
-    console.log(iconData);
-    console.log(iconData[0].includes('d'))
-    console.log(aggregatedIconData);
-    
 
     box1Day.innerHTML = averagedtempreatureData[0];
     box1Night.innerHTML = averagedtempreatureData[1];
