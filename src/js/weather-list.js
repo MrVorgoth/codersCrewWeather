@@ -75,7 +75,60 @@ connect.onload = function() {
     );
 
     //decides about icon to assign for 5 days out of 40 datapoints
+    let iconData = [];
+    for (let i = 0; i < 40; i++) {
+        iconData.push(data.list[i]["weather"][0]["icon"])
+    }
 
+    // let aggregatedIconData = [];
+    // let iconDataCounter = 0;
+    // for(let i = 0; i < 5; i++) {
+    //     if(i === 0) {
+    //         if(iconData[0].includes('n')) {
+    //             aggregatedIconData[0] == ['--'];
+    //             continue;
+    //         } else {
+    //             aggregatedIconData[0] = [];
+    //             while(iconData[iconDataCounter].includes('d')) {
+    //                 aggregatedIconData[0].push(iconData[iconDataCounter])
+    //                 iconDataCounter += 1;
+    //             }
+    //         }
+    //     } else {
+    //         aggregatedIconData[i] = [];
+    //         while (iconData[iconDataCounter].includes('d')) {
+    //             aggregatedIconData[i].push(iconData[iconDataCounter])
+    //             iconDataCounter += 1;
+    //         }
+    //     }     
+    // }
+
+    let aggregatedIconData = [];
+    let iconDataCounter = 0;
+    for(let i = 0; i < 5; i++) {
+        aggregatedIconData[i] = [];
+        if(i === 0 && iconData[iconDataCounter].includes('n')) {
+            while (iconData[iconDataCounter].includes('n')) {
+                iconDataCounter += 1;
+            }
+        } else {
+            while(iconData[iconDataCounter].includes('n')) {
+                iconDataCounter += 1;
+            }
+            while(iconData[iconDataCounter].includes('d')) {
+                aggregatedIconData[i].push(iconData[iconDataCounter]);
+                iconDataCounter += 1;
+            }
+        }
+    }
+
+
+
+
+    console.log(iconData);
+    console.log(iconData[0].includes('d'))
+    console.log(aggregatedIconData);
+    
 
     box1Day.innerHTML = averagedtempreatureData[0];
     box1Night.innerHTML = averagedtempreatureData[1];
