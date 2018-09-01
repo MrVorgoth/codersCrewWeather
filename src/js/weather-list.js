@@ -105,12 +105,14 @@ connect.onload = function() {
            if(arr.includes('9d'))  { return '9d'  }
            if(arr.includes('50d')) { return '50d' }
            if(arr.length === 0) {
-                return '--'
+               return '01d' //TODO: handle this first day icon assigment, replace that line with more correct sollution
            } else {
-               let temp = arr.map((iconCode) => {
+               let codeInt = arr.map((iconCode) => {
                    return parseInt(iconCode.substring(0, iconCode.length - 1), 10);
                })
-               return `${Math.round(temp.reduce((x, y) => x + y, 0)/temp.length)}d`
+               let codeIntAveraged = Math.round(codeInt.reduce((x, y) => x + y, 0) / codeInt.length);
+               let resultCode = codeIntAveraged.toString()[0] === '0' ? `${codeIntAveraged}d` : `0${codeIntAveraged}d`
+               return resultCode;
            }          
         })
 
