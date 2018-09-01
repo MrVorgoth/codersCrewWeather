@@ -57,7 +57,7 @@ connect.onload = function() {
     for(let i=0; i < 10; i++) {
         aggregatedtempreatureData[i] = [];
         for(let j=0; j < 4; j++) {
-            if(apiPhase - 1 < counter && tempreatureData.length > 0) {
+            if(apiPhase < counter && tempreatureData.length > 0) {
                 aggregatedtempreatureData[i].push(tempreatureData.shift());
                 counter += 1;
             } else {
