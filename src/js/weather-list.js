@@ -79,7 +79,6 @@ connect.onload = function() {
     for (let i = 0; i < 40; i++) {
         iconData.push(data.list[i]["weather"][0]["icon"])
     }
-
     let aggregatedIconData = [];
     let iconDataCounter = 0;
     for(let i = 0; i < 5; i++) {
@@ -98,6 +97,25 @@ connect.onload = function() {
             }
         }
     }
+    let chosenIcons = aggregatedIconData
+        .map((arr) => {
+           if(arr.includes('11d')) { return '11d' } 
+           if(arr.includes('13d')) { return '13d' }
+           if(arr.includes('10d')) { return '10d' }
+           if(arr.includes('9d'))  { return '9d'  }
+           if(arr.includes('50d')) { return '50d' }
+           if(arr.length === 0) {
+                return '--'
+           } else {
+               let temp = arr.map((iconCode) => {
+                   return parseInt(iconCode.substring(0, iconCode.length - 1), 10);
+               })
+               return `${Math.round(temp.reduce((x, y) => x + y, 0)/temp.length)}d`
+           }          
+        })
+
+    console.log(aggregatedIconData);
+    console.log(chosenIcons);
 
     box1Day.innerHTML = averagedtempreatureData[0];
     box1Night.innerHTML = averagedtempreatureData[1];
