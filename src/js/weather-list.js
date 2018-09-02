@@ -38,33 +38,34 @@ const box2Day = document.getElementById("box2_day");
 const box3Day = document.getElementById("box3_day");
 const box4Day = document.getElementById("box4_day");
 const box5Day = document.getElementById("box5_day");
+const weatherIcons = document.querySelectorAll(".weather-icon")
 
 const connect = new XMLHttpRequest();
 connect.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric");
 connect.onload = function() {
 
     const data = JSON.parse(connect.responseText);
-    const weatherData = [];
-    for (let i = 0; i < 40; i++) {
-        weatherData.push(data.list[i].main.temp)
-    }
 
+    //aggregates and avergages tempreature for 5 days and nights out of 40 datapoints
+    const tempreatureData = [];
+    for (let i = 0; i < 40; i++) {
+        tempreatureData.push(data.list[i].main.temp)
+    }
     const apiPhase = Math.round((((new Date).getHours() / 8) * 3)/2);
-    let aggregatedWeatherData =[];
+    let aggregatedtempreatureData =[];
     let counter = 0;
     for(let i=0; i < 10; i++) {
-        aggregatedWeatherData[i] = [];
+        aggregatedtempreatureData[i] = [];
         for(let j=0; j < 4; j++) {
-            if(apiPhase - 1 < counter && weatherData.length > 0) {
-                aggregatedWeatherData[i].push(weatherData.shift());
+            if(apiPhase < counter && tempreatureData.length > 0) {
+                aggregatedtempreatureData[i].push(tempreatureData.shift());
                 counter += 1;
             } else {
                 counter += 1;
             }
         }
     }
-
-    const averagedWeatherData = aggregatedWeatherData.map(
+    const averagedtempreatureData = aggregatedtempreatureData.map(
         (arr) => {
             if (arr.length > 0){
                 return Math.round((arr.reduce((x, y) => x + y, 0)) / arr.length || 1);
@@ -74,16 +75,65 @@ connect.onload = function() {
         }
     );
 
-    box1Day.innerHTML = averagedWeatherData[0];
-    box1Night.innerHTML = averagedWeatherData[1];
-    box2Day.innerHTML = averagedWeatherData[2];
-    box2Night.innerHTML = averagedWeatherData[3];
-    box3Day.innerHTML = averagedWeatherData[4];
-    box3Night.innerHTML = averagedWeatherData[5];
-    box4Day.innerHTML = averagedWeatherData[6];
-    box4Night.innerHTML = averagedWeatherData[7];
-    box5Day.innerHTML = averagedWeatherData[8];
-    box5Night.innerHTML = averagedWeatherData[9];
+    //decides about icon to assign for 5 days out of 40 datapoints
+    let iconData = [];
+    for (let i = 0; i < 40; i++) {
+        iconData.push(data.list[i]["weather"][0]["icon"])
+    }
+    let aggregatedIconData = [];
+    let iconDataCounter = 0;
+    for(let i = 0; i < 5; i++) {
+        aggregatedIconData[i] = [];
+        if(i === 0 && iconData[iconDataCounter].includes('n')) {
+            while (iconData[iconDataCounter].includes('n')) {
+                iconDataCounter += 1;
+            }
+        } else {
+            while(iconData[iconDataCounter].includes('n')) {
+                iconDataCounter += 1;
+            }
+            while(iconData[iconDataCounter].includes('d')) {
+                aggregatedIconData[i].push(iconData[iconDataCounter]);
+                iconDataCounter += 1;
+            }
+        }
+    }
+    let chosenIcons = aggregatedIconData
+        .map((arr) => {
+           if(arr.includes('11d')) { return '11d' } 
+           if(arr.includes('13d')) { return '13d' }
+           if(arr.includes('10d')) { return '10d' }
+           if(arr.includes('9d'))  { return '9d'  }
+           if(arr.includes('50d')) { return '50d' }
+           if(arr.length === 0) {
+               return '02d' //TODO: handle this first day icon assigment, replace that line with more correct sollution
+           } else {
+               let codeInt = arr.map((iconCode) => {
+                   return parseInt(iconCode.substring(0, iconCode.length - 1), 10);
+               })
+               let codeIntAveraged = Math.round(codeInt.reduce((x, y) => x + y, 0) / codeInt.length);
+               let resultCode = codeIntAveraged.toString()[0] === '0' ? `${codeIntAveraged}d` : `0${codeIntAveraged}d`
+               return resultCode;
+           }          
+        })
+
+    console.log(aggregatedIconData);
+    console.log(chosenIcons);
+
+    box1Day.innerHTML = averagedtempreatureData[0];
+    box1Night.innerHTML = averagedtempreatureData[1];
+    box2Day.innerHTML = averagedtempreatureData[2];
+    box2Night.innerHTML = averagedtempreatureData[3];
+    box3Day.innerHTML = averagedtempreatureData[4];
+    box3Night.innerHTML = averagedtempreatureData[5];
+    box4Day.innerHTML = averagedtempreatureData[6];
+    box4Night.innerHTML = averagedtempreatureData[7];
+    box5Day.innerHTML = averagedtempreatureData[8];
+    box5Night.innerHTML = averagedtempreatureData[9];
+
+    for(let i = 0; i < 5; i++) {
+        weatherIcons[i].src = `http://openweathermap.org/img/w/${chosenIcons[i]}.png`;
+    }
 };
 
 connect.send();
