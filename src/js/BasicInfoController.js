@@ -8,7 +8,7 @@ class BasicInfoController {
             CITY_ID: "3081368",
             API_KEY: "760aed7e289ca1fce93475faf5a1f920",
             API_TYPES: ['weather', 'forecast'],
-            FULL_API_URL: "http://api.openweathermap.org/data/2.5/weather?id=3081368&&appid=760aed7e289ca1fce93475faf5a1f920"
+            FULL_API_URL: "https://api.openweathermap.org/data/2.5/weather?id=3081368&&appid=760aed7e289ca1fce93475faf5a1f920"
         }
         this.time = {
             hours: (new Date).getHours(),
@@ -31,7 +31,7 @@ class BasicInfoController {
                 this.basicInfo.weatherDescription.innerHTML = res.data.weather[0]["description"];
                 this.basicInfo.wind.innerHTML = `Wind: ${res.data.wind.speed} kmh`;
                 this.basicInfo.currentTime.innerHTML = `${this.formattedTime.formattedHours}:${this.formattedTime.formattedMinutes}`;
-                this.basicInfo.icon.src = `http://openweathermap.org/img/w/${res.data.weather[0]["icon"]}.png`;
+                this.basicInfo.icon.src = `https://openweathermap.org/img/w/${res.data.weather[0]["icon"]}.png`;
                 this.basicInfo.temperatureMin.innerHTML = `Temp min: ${Math.round(((res.data.main["temp_min"] - 273) * 10) / 10)} &deg;C`;
                 this.basicInfo.temperatureMax.innerHTML = `Temp max: ${Math.round(((res.data.main["temp_max"] - 273) * 10) / 10)} &deg;C`;
             }

@@ -41,7 +41,7 @@ const box5Day = document.getElementById("box5_day");
 const weatherIcons = document.querySelectorAll(".weather-icon")
 
 const connect = new XMLHttpRequest();
-connect.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric");
+connect.open("GET", "https://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric");
 connect.onload = function() {
 
     const data = JSON.parse(connect.responseText);
@@ -57,7 +57,7 @@ connect.onload = function() {
     for(let i=0; i < 10; i++) {
         aggregatedtempreatureData[i] = [];
         for(let j=0; j < 4; j++) {
-            if(apiPhase < counter && tempreatureData.length > 0) {
+            if(apiPhase - 1 < counter && tempreatureData.length > 0) {
                 aggregatedtempreatureData[i].push(tempreatureData.shift());
                 counter += 1;
             } else {
@@ -132,7 +132,7 @@ connect.onload = function() {
     box5Night.innerHTML = averagedtempreatureData[9];
 
     for(let i = 0; i < 5; i++) {
-        weatherIcons[i].src = `http://openweathermap.org/img/w/${chosenIcons[i]}.png`;
+        weatherIcons[i].src = `https://openweathermap.org/img/w/${chosenIcons[i]}.png`;
     }
 };
 

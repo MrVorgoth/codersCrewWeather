@@ -3,7 +3,7 @@ const connect = new XMLHttpRequest();
 let temperatures = [];
 connect.open(
   "GET",
-  "http://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric"
+  "https://api.openweathermap.org/data/2.5/forecast?id=3081368&APPID=6d99186162ab69f549aae9f7f584c075&units=metric"
 );
 
 connect.onload = function() {
