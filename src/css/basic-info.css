@@ -7,11 +7,12 @@
     overflow: hidden;
     color: #666666;
     background-color: white;
+    border: 1px solid rgb(73, 68, 68);
 }
 
 .basic-info-boxL {
     padding-left: 10px;
-    width: calc(50% - 5px)
+    width: calc(50% - 5px);
 }
 
 #weatherDescription {
@@ -21,6 +22,7 @@
 .basic-info-boxR {
     margin-top: 10px;
     width: calc(50% - 5px);
+    text-align: center;
 }
 
 .basic-info-weather {
